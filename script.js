@@ -16,7 +16,7 @@ const DEPARTMENT_LINKS = {
 };
 const SHARE_MESSAGE = `📢 Bolivia necesita reglas educativas estables
 
-El Ministerio de Educación cambió el criterio de edad para Prekínder desde la Gestión 2027. Ya somos +500 familias organizadas en todo el país pidiendo una transición responsable.
+El Ministerio de Educación cambió el criterio de edad para Prekínder desde la Gestión 2027. Ya somos +2000 familias organizadas en todo el país pidiendo una transición responsable.
 
 Más información en: ${window.location.href}
 

@@ -920,15 +920,33 @@ p:last-child {
     padding: 10px 20px;
 }
 
-/* ==================== EN LOS MEDIOS (VIDEOS FACEBOOK) ==================== */
+/* ==================== EN LOS MEDIOS (VIDEOS FACEBOOK, CARRUSEL) ==================== */
 .media-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    display: flex;
     gap: var(--espacio-lg);
     margin-top: var(--espacio-lg);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: var(--espacio-md);
+    padding-bottom: var(--espacio-sm);
+    /* Barra de scroll discreta pero visible, para que quede claro que hay más */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gris-400) transparent;
+}
+
+.media-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.media-grid::-webkit-scrollbar-thumb {
+    background-color: var(--color-gris-400);
+    border-radius: 999px;
 }
 
 .media-card {
+    flex: 0 0 auto;
+    width: 300px;
+    scroll-snap-align: start;
     background-color: var(--color-blanco);
     border-radius: var(--radio-lg);
     overflow: hidden;
@@ -936,17 +954,24 @@ p:last-child {
     border: 1px solid var(--color-gris-200);
 }
 
+.media-card--horizontal {
+    width: 420px;
+}
+
 .media-embed {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 9 / 16;
     background-color: var(--color-gris-800);
 }
 
+.media-embed--horizontal {
+    aspect-ratio: 16 / 9;
+}
+
+/* Compatibilidad con el nombre anterior, por si queda algún uso suelto */
 .media-embed--vertical {
     aspect-ratio: 9 / 16;
-    max-width: 340px;
-    margin: 0 auto;
 }
 
 .media-embed iframe {
@@ -983,6 +1008,14 @@ p:last-child {
 
 .media-source-link:hover {
     text-decoration: underline;
+}
+
+.scroll-hint {
+    display: block;
+    margin-top: 6px;
+    font-size: var(--tamaño-pequeño);
+    font-weight: 600;
+    color: var(--color-azul-principal);
 }
 
 /* ==================== IMPACT CARD DESTACADA ==================== */

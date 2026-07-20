@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registros verificados — Prekínder Bolivia 2027</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos propios de esta página, no tocan styles.css del sitio principal */
+        .res-hero {
+            padding: 90px 0 40px;
+            text-align: center;
+            background: linear-gradient(160deg, #F0F7FF 0%, #FFFDF5 50%, #F5F9FF 100%);
+        }
+        .res-hero h1 { font-size: 2.25rem; margin-bottom: var(--espacio-sm); }
+        .res-hero p { max-width: 640px; margin: 0 auto; color: var(--color-gris-600); }
+        .res-badge {
+            display: inline-block;
+            margin-top: var(--espacio-md);
+            padding: 6px 16px;
+            background: var(--color-azul-claro);
+            color: var(--color-azul-principal);
+            border-radius: 999px;
+            font-size: var(--tamaño-pequeño);
+            font-weight: 700;
+        }
+        .res-meta {
+            text-align: center;
+            font-size: var(--tamaño-pequeño);
+            color: var(--color-gris-400);
+            margin-top: var(--espacio-sm);
+        }
+        .res-total {
+            text-align: center;
+            margin: var(--espacio-xl) auto;
+        }
+        .res-total .num {
+            display: block;
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--color-azul-oscuro);
+            line-height: 1;
+        }
+        .res-total .label {
+            display: block;
+            margin-top: 8px;
+            color: var(--color-gris-600);
+            font-weight: 600;
+        }
+        .res-block {
+            max-width: 640px;
+            margin: 0 auto var(--espacio-xxl);
+            background: var(--color-blanco);
+            border: 1px solid var(--color-gris-200);
+            border-radius: var(--radio-lg);
+            padding: var(--espacio-xl);
+            box-shadow: var(--sombra-sm);
+        }
+        .res-block h2 {
+            font-size: 1.15rem;
+            text-align: left;
+            margin-bottom: var(--espacio-lg);
+            color: var(--color-azul-oscuro);
+        }
+        .res-block--wide { max-width: 760px; }
+        .chart-wrap {
+            position: relative;
+            height: 300px;
+            margin: 0 auto var(--espacio-lg);
+        }
+        .chart-wrap--donut {
+            height: auto;
+            aspect-ratio: 1 / 1;
+            max-width: 280px;
+        }
+        .chart-wrap--bar { height: 260px; }
+        .stat-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        .stat-bar-label {
+            width: 170px;
+            flex-shrink: 0;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-texto);
+        }
+        .stat-bar-swatch {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 3px;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        .stat-bar-count {
+            margin-left: auto;
+            font-weight: 700;
+            font-size: 0.82rem;
+            color: var(--color-gris-600);
+        }
+        .res-loading, .res-error {
+            text-align: center;
+            color: var(--color-gris-400);
+            padding: var(--espacio-lg);
+        }
+        .res-error { color: #DC2626; }
+        .res-download {
+            text-align: center;
+            margin-bottom: var(--espacio-xxl);
+        }
+        .res-disclaimer {
+            max-width: 640px;
+            margin: 0 auto var(--espacio-xxl);
+            font-size: var(--tamaño-pequeño);
+            color: var(--color-gris-400);
+            text-align: center;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header" id="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="site-logo" aria-label="Inicio — Prekínder Bolivia 2027">
+                <span class="logo-mark" aria-hidden="true">PK</span>
+                <span class="logo-text">Prekínder <strong>Bolivia 2027</strong></span>
+            </a>
+            <nav class="site-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">← Volver al sitio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="res-hero">
+        <div class="container">
+            <h1>Registros verificados</h1>
+            <p>
+                Este número refleja únicamente los registros hechos directamente en el sitio, verificados con
+                Carnet de Identidad. No incluye a todas las familias de los grupos de WhatsApp — es un
+                subconjunto más chico y riguroso, pensado como evidencia verificable para presentar ante
+                las autoridades.
+            </p>
+            <span class="res-badge">Datos en vivo, actualizados en tiempo real</span>
+            <p class="res-meta" id="res-timestamp"></p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div id="res-content">
+                <p class="res-loading">Cargando datos…</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2027 Padres por la Educación en Bolivia — Iniciativa ciudadana, sin filiación política.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="resultados.js"></script>
+</body>
+
+</html>

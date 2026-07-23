@@ -179,6 +179,14 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="resultados.js"></script>
+
+    <!-- ===== Vercel Web Analytics =====
+         Activar en: dashboard de Vercel → proyecto → pestaña Analytics → Enable (gratis en plan Hobby).
+         Sin esto activado, este script no reporta nada, pero tampoco genera errores. -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 
 </html>
